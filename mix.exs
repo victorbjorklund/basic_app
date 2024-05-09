@@ -74,9 +74,9 @@ defmodule BasicApp.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.setup": ["esbuild.install --if-missing"],
-      "assets.build": ["npx tailwind basic_app", "esbuild basic_app"],
+      "assets.build": ["tailwindcss -c assets/tailwind.config.js -i assets/css/app.css -o priv/static/assets/app.css", "esbuild basic_app"],
       "assets.deploy": [
-        "npx tailwind basic_app --minify",
+        "tailwindcss -c assets/tailwind.config.js -i assets/css/app.css -o priv/static/assets/app.css -m",
         "esbuild basic_app --minify",
         "phx.digest"
       ]
