@@ -73,10 +73,10 @@ defmodule BasicApp.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind basic_app", "esbuild basic_app"],
+      "assets.setup": ["esbuild.install --if-missing"],
+      "assets.build": ["npx tailwind basic_app", "esbuild basic_app"],
       "assets.deploy": [
-        "tailwind basic_app --minify",
+        "npx tailwind basic_app --minify",
         "esbuild basic_app --minify",
         "phx.digest"
       ]

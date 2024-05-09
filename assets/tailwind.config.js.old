@@ -7,9 +7,9 @@ const path = require("path")
 
 module.exports = {
   content: [
-    "assets/js/**/*.js",
-    "lib/basic_app_web.ex",
-    "lib/basic_app_web/**/*.*ex"
+    "./js/**/*.js",
+    "../lib/basic_app_web.ex",
+    "../lib/basic_app_web/**/*.*ex"
   ],
   theme: {
     extend: {

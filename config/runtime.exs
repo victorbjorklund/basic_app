@@ -51,6 +51,7 @@ if config_env() == :prod do
   host = System.get_env("PHX_HOST") || "example.com"
   port = String.to_integer(System.get_env("PORT") || "4000")
 
+
   config :basic_app, :dns_cluster_query, System.get_env("DNS_CLUSTER_QUERY")
 
   config :basic_app, BasicAppWeb.Endpoint,
@@ -60,7 +61,7 @@ if config_env() == :prod do
       # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
       # See the documentation on https://hexdocs.pm/bandit/Bandit.html#t:options/0
       # for details about using IPv6 vs IPv4 and loopback vs public addresses.
-      ip: {0, 0, 0, 0, 0, 0, 0, 0},
+      ip: :any,
       port: port
     ],
     secret_key_base: secret_key_base
